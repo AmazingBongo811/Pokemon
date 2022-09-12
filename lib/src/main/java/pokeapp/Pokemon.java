@@ -15,18 +15,24 @@ public class Pokemon {
 	public  int ID;
 	public  int height;
 	public String img_url;
-	private  get_api api;
+
 	
 	
 	public Pokemon(String poke_name) throws NullPointerException, IOException, InterruptedException, ExecutionException {
-	this.api = new get_api(poke_name);
-	this.name = api.get_poke().name;
-	this.ID=api.get_id();
-	this.height = api.get_poke().height;
-	this.weight = api.get_poke().weight;
-	this.img_url = api.get_img();
+	get_api api = new get_api(poke_name);
+	name = api.pokemon.name;
+	ID=api.pokemon.id;
+	height = api.pokemon.height;
+	weight = api.pokemon.weight;
+	img_url = api.get_img();
 	
 	
+	}
+	
+	public String ToolTip()
+	{
+		return "name: " + name + "\n weight: " + weight + "\n height: " + height + "\n ID: " + ID;
+		
 	}
 
 }
