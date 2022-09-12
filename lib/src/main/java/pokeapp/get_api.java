@@ -12,13 +12,14 @@ import java.util.*;
 
 public class get_api {
 	
-	//private static poke pokemon;
+	public poke pokemon;
 	private String poke_name;
 	
 	public get_api(String poke_name) throws NullPointerException, IOException, InterruptedException, ExecutionException
 	{
 
 		this.poke_name=poke_name;
+		pokemon = get_poke();
 
 	}
 	
@@ -30,9 +31,9 @@ public class get_api {
 		String get_pokemon = http_client.get_http(url + poke_name);
 		
 		ObjectMapper mapper = new ObjectMapper();
-		poke pokemon = mapper.readValue(get_pokemon, poke.class);
+		poke pokemon1 = mapper.readValue(get_pokemon, poke.class);
 
-		 return pokemon;
+		 return pokemon1;
 		 
 	}
 	
@@ -40,19 +41,15 @@ public class get_api {
 	
 	public void get_abilities(String ablility_name) throws NullPointerException, IOException, InterruptedException, ExecutionException
 	{
-		get_id();
+	
 	}
 	
-	public int get_id() throws NullPointerException, IOException, InterruptedException, ExecutionException
-	{
-		return get_poke().id;
-	}
+
 	
 	public String get_img() throws NullPointerException, IOException, InterruptedException, ExecutionException
 	{
 		
-
-		return get_poke().sprites.findValue("front_default").toString().replace('"',' ');
+		return pokemon.sprites.findValue("front_default").toString().replace('"',' ');
 	}
 	
 
