@@ -20,20 +20,20 @@ import javax.swing.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Poke_Main_UI {
+public class PokeMainUI {
 
 	private JFrame frame;
-	private Pokemon my_poke;
-	private Pokemon enemy_poke;
+	private Pokemon myPoke;
+	private Pokemon enemyPoke;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Poke_UI(String my_poke_name, String enemy_poke_name) {
+	public static void pokeUI(String my_poke_name, String enemy_poke_name) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Poke_Main_UI window = new Poke_Main_UI(my_poke_name, enemy_poke_name);
+					PokeMainUI window = new PokeMainUI(my_poke_name, enemy_poke_name);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,9 +49,9 @@ public class Poke_Main_UI {
 	 * @throws IOException 
 	 * @throws NullPointerException 
 	 */
-	public Poke_Main_UI(String my_poke, String enemy_poke) throws NullPointerException, IOException, InterruptedException, ExecutionException {
-		this.my_poke = new Pokemon(my_poke);
-		this.enemy_poke = new Pokemon(enemy_poke);
+	public PokeMainUI(String myPoke, String enemyPoke) throws NullPointerException, IOException, InterruptedException, ExecutionException {
+		this.myPoke = new Pokemon(myPoke);
+		this.enemyPoke = new Pokemon(enemyPoke);
 		initialize();
 	}
 
@@ -81,8 +81,8 @@ public class Poke_Main_UI {
 		panel.setLayout(sl_panel);
 		
 		JLabel Enemy_Poke_IMG = new JLabel("");
-		Enemy_Poke_IMG.setToolTipText(enemy_poke.name);
-		URL url = new URL(enemy_poke.img_url);
+		Enemy_Poke_IMG.setToolTipText(enemyPoke.toolTip());
+		URL url = new URL(enemyPoke.img_url);
 		ImageIcon enemy_poke_img = new ImageIcon(url);
 		Enemy_Poke_IMG.setIcon(enemy_poke_img);
 		sl_panel.putConstraint(SpringLayout.NORTH, Enemy_Poke_IMG, 60, SpringLayout.NORTH, panel);
@@ -90,8 +90,8 @@ public class Poke_Main_UI {
 		panel.add(Enemy_Poke_IMG);
 		
 		JLabel My_Poke_IMG = new JLabel("");
-		My_Poke_IMG.setToolTipText(my_poke.name);
-		URL url1 = new URL(my_poke.img_url);
+		My_Poke_IMG.setToolTipText(myPoke.toolTip());
+		URL url1 = new URL(myPoke.img_url);
 		ImageIcon my_poke_img = new ImageIcon(url1);
 		My_Poke_IMG.setIcon(my_poke_img);
 		sl_panel.putConstraint(SpringLayout.NORTH, My_Poke_IMG, 141, SpringLayout.NORTH, panel);
