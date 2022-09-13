@@ -17,22 +17,22 @@ import java.util.concurrent.ExecutionException;
 import java.awt.event.ActionEvent;
 import javax.swing.SpringLayout;
 
-public class Poke_Home_Page {
+public class PokeHomePage {
 
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-	private String my_poke_name;
-	private String enemy_poke_name;
+	private String myPokeName;
+	private String enemyPokeName;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void Select_Screen() {
+	public static void selectScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Poke_Home_Page window = new Poke_Home_Page();
+					PokeHomePage window = new PokeHomePage();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class Poke_Home_Page {
 	/**
 	 * Create the application.
 	 */
-	public Poke_Home_Page() {
+	public PokeHomePage() {
 		initialize();
 	}
 
@@ -98,8 +98,8 @@ public class Poke_Home_Page {
 		JButton battlr_button = new JButton("Battle");
 		battlr_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 my_poke_name = textField.getText();
-				 enemy_poke_name = textField_1.getText();
+				 myPokeName = textField.getText();
+				 enemyPokeName = textField_1.getText();
 				try {
 					Battle_Screen();
 				} catch (NullPointerException | IOException | InterruptedException | ExecutionException e1) {
@@ -119,8 +119,8 @@ public class Poke_Home_Page {
 	}
 	
 	private void Battle_Screen() throws NullPointerException, IOException, InterruptedException, ExecutionException {
-		Poke_Main_UI screen = new Poke_Main_UI(my_poke_name,enemy_poke_name);
-		screen.Poke_UI(my_poke_name,enemy_poke_name);
+		PokeMainUI screen = new PokeMainUI(myPokeName,enemyPokeName);
+		screen.pokeUI(myPokeName,enemyPokeName);
 		frame.dispose();
 		
 	}
