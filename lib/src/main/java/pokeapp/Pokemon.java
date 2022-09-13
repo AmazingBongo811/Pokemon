@@ -7,31 +7,31 @@ import java.util.concurrent.ExecutionException;
 
 public class Pokemon {
 	
-	public int base_happines;
-	public int capture_rate;
-	public String evloves_from;
+	public int baseHappines;
+	public int captureRate;
+	public String evlovesFrom;
 	public  int weight;
 	public  String name;
-	public  int ID;
+	public  int id;
 	public  int height;
 	public String img_url;
 
 	
 	
-	public Pokemon(String poke_name) throws NullPointerException, IOException, InterruptedException, ExecutionException {
-	get_api api = new get_api(poke_name);
+	public Pokemon(String pokeName) throws NullPointerException, IOException, InterruptedException, ExecutionException {
+	GetApi api = new GetApi(pokeName);
 	name = api.pokemon.name;
-	ID=api.pokemon.id;
+	id=api.pokemon.id;
 	height = api.pokemon.height;
 	weight = api.pokemon.weight;
-	img_url = api.get_img();
+	img_url = api.getImg();
 	
 	
 	}
 	
-	public String ToolTip()
+	public String toolTip()
 	{
-		return "name: " + name + "\n weight: " + weight + "\n height: " + height + "\n ID: " + ID;
+		return "name: " + name + "\n weight: " + weight + "\n height: " + height + "\n ID: " + id;
 		
 	}
 
