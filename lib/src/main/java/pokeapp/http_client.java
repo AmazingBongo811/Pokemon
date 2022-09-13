@@ -27,11 +27,11 @@ import java.util.*;
 
 
 
-public class http_client {
+public class HTTPClient {
 
 	
 	
-	public static String get_http(String url) throws IOException, InterruptedException, ExecutionException, NullPointerException
+	public static String getHttp(String url) throws IOException, InterruptedException, ExecutionException, NullPointerException
 	{
 		var client = HttpClient.newHttpClient();
 		var request = HttpRequest.newBuilder(
