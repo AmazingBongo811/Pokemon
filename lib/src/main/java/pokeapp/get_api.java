@@ -10,28 +10,28 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.util.*;
 
-public class get_api {
+public class GetApi {
 	
-	public poke pokemon;
-	private String poke_name;
+	public Poke pokemon;
+	private String pokeName;
 	
-	public get_api(String poke_name) throws NullPointerException, IOException, InterruptedException, ExecutionException
+	public GetApi(String pokeName) throws NullPointerException, IOException, InterruptedException, ExecutionException
 	{
 
-		this.poke_name=poke_name;
-		pokemon = get_poke();
+		this.pokeName=pokeName;
+		pokemon = getPoke();
 
 	}
 	
 
-	public poke get_poke() throws NullPointerException, IOException, InterruptedException, ExecutionException
+	public Poke getPoke() throws NullPointerException, IOException, InterruptedException, ExecutionException
 	{
 		
 		String url = "https://pokeapi.co/api/v2/pokemon/";
-		String get_pokemon = http_client.get_http(url + poke_name);
+		String getPokemon = HTTPClient.getHttp(url + pokeName);
 		
 		ObjectMapper mapper = new ObjectMapper();
-		poke pokemon1 = mapper.readValue(get_pokemon, poke.class);
+		Poke pokemon1 = mapper.readValue(getPokemon, Poke.class);
 
 		 return pokemon1;
 		 
@@ -39,14 +39,14 @@ public class get_api {
 	
 
 	
-	public void get_abilities(String ablility_name) throws NullPointerException, IOException, InterruptedException, ExecutionException
+	public void getAbilities(String ablility_name) throws NullPointerException, IOException, InterruptedException, ExecutionException
 	{
 	
 	}
 	
 
 	
-	public String get_img() throws NullPointerException, IOException, InterruptedException, ExecutionException
+	public String getImg() throws NullPointerException, IOException, InterruptedException, ExecutionException
 	{
 		
 		return pokemon.sprites.findValue("front_default").toString().replace('"',' ');
